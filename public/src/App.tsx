@@ -1,38 +1,89 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { ActionIcon, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
+import { useState, useRef } from 'react';
+import { ActionIcon, useComputedColorScheme, useMantineColorScheme, Container, Flex } from '@mantine/core';
 import { Moon, Sun } from 'lucide-react';
-import Home from './components/Home';
-import About from './components/About';
+import FinanceInput, { FinanceInputRef } from './components/FinanceInput';
+import GuidingQuestions from './components/GuidingQuestions';
+
+const GUIDING_QUESTIONS = [
+  "What did I spend on groceries last month?",
+  "Show me all my expenses from September",
+  "What expenses did I have over $200?",
+  "What's my average dining expense?",
+  "Show me my spending by category for last month",
+  "Were there any unusual expenses in October?",
+  "What's the total I spent on entertainment last month?",
+  "Compare my grocery spending in September vs October",
+  "What's my median dining expense, excluding outliers?",
+  "Show me my top 3 spending categories last month",
+  "What were my highest grocery purchases in October?",
+  "Compare my average entertainment spending this month vs last month",
+  "Show me my top 5 spending categories last month, excluding any weird outliers",
+  "What's the median amount I spend on groceries over $50, compared to last month?",
+  "Were there unusual dining expenses last month, and what was the average of the normal ones?",
+  "Show me groceries over $100 from last month, but exclude any one-time weird purchases",
+  "What's my weekly spending pattern for dining, excluding outliers?",
+  "Compare my total spending by category between September and October"
+];
 
 function App() {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light');
+  const [question, setQuestion] = useState('');
+  const inputRef = useRef<FinanceInputRef>(null);
 
   const toggleColorScheme = () => {
     setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark');
   };
 
+  const handleQuestionSubmit = async (question: string) => {
+    try {
+      const response = await fetch('/api/ask_finance_assistant', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send question');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  const handleGuidingQuestionClick = (selectedQuestion: string) => {
+    setQuestion(selectedQuestion);
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 0);
+  };
+
   return (
-    <Router>
-      <div style={{ position: 'relative' }}>
-        <ActionIcon
-          onClick={toggleColorScheme}
-          variant="default"
-          size="lg"
-          aria-label="Toggle color scheme"
-          style={{ position: 'absolute', top: 10, right: 10 }}
-        >
-          {computedColorScheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-        </ActionIcon>
-        <nav>
-          <Link to='/'>Home</Link> | <Link to='/about'>About</Link>
-        </nav>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-        </Routes>
-      </div>
-    </Router>
+    <div style={{ position: 'relative' }}>
+      <ActionIcon
+        onClick={toggleColorScheme}
+        variant="default"
+        size="lg"
+        aria-label="Toggle color scheme"
+        style={{ position: 'absolute', top: 10, right: 10 }}
+      >
+        {computedColorScheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+      </ActionIcon>
+
+      <Container size="sm" pt="xl">
+        <Flex direction="column" gap="md">
+          <FinanceInput
+            ref={inputRef}
+            value={question}
+            onChange={setQuestion}
+            onSubmit={handleQuestionSubmit}
+          />
+          <GuidingQuestions questions={GUIDING_QUESTIONS} onQuestionClick={handleGuidingQuestionClick} />
+        </Flex>
+      </Container>
+    </div>
   );
 }
 
