@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ActionIcon, useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
+import { Moon, Sun } from 'lucide-react';
 import Home from './components/Home';
 import About from './components/About';
 
@@ -21,7 +22,7 @@ function App() {
           aria-label="Toggle color scheme"
           style={{ position: 'absolute', top: 10, right: 10 }}
         >
-          {computedColorScheme === 'dark' ? '☀️' : '🌙'}
+          {computedColorScheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
         </ActionIcon>
         <nav>
           <Link to='/'>Home</Link> | <Link to='/about'>About</Link>
