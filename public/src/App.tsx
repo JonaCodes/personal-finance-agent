@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { ActionIcon, useComputedColorScheme, useMantineColorScheme, Container, Flex } from '@mantine/core';
+import { ActionIcon, useComputedColorScheme, useMantineColorScheme, Container, Flex, Loader, Text, Title } from '@mantine/core';
 import { Moon, Sun } from 'lucide-react';
 import FinanceInput, { FinanceInputRef } from './components/FinanceInput';
 import GuidingQuestions from './components/GuidingQuestions';
@@ -29,6 +29,8 @@ function App() {
   const { setColorScheme } = useMantineColorScheme();
   const computedColorScheme = useComputedColorScheme('light');
   const [question, setQuestion] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [response, setResponse] = useState('');
   const inputRef = useRef<FinanceInputRef>(null);
 
   const toggleColorScheme = () => {
@@ -36,8 +38,11 @@ function App() {
   };
 
   const handleQuestionSubmit = async (question: string) => {
+    setIsLoading(true);
+    setResponse('');
+
     try {
-      const response = await fetch('/api/ask_finance_assistant', {
+      const res = await fetch('/api/ask_finance_assistant', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,11 +50,17 @@ function App() {
         body: JSON.stringify({ question }),
       });
 
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error('Failed to send question');
       }
+
+      const data = await res.json();
+      setResponse(data.answer || 'No response received');
     } catch (error) {
       console.error('Error:', error);
+      setResponse('An error occurred while processing your question.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -81,6 +92,21 @@ function App() {
             onSubmit={handleQuestionSubmit}
           />
           <GuidingQuestions questions={GUIDING_QUESTIONS} onQuestionClick={handleGuidingQuestionClick} />
+
+          {isLoading && (
+            <Flex align="center" gap="sm" mt="md">
+              <Loader size="sm" />
+              <Text size="sm" c="dimmed">Processing your question...</Text>
+            </Flex>
+          )}
+
+          {response && !isLoading && (
+            <Flex direction={'column'} gap={'xs'}>
+              <Title order={4}>Answer</Title>
+              <Text size="sm">{response}</Text>
+            </Flex>
+
+          )}
         </Flex>
       </Container>
     </div>
