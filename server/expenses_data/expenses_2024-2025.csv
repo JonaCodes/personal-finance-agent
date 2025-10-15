@@ -1,0 +1,295 @@
+date,amount,category,vendor
+2024-01-02,45.13,utilities,Water
+2024-01-04,16.38,health,Pharmacy
+2024-01-05,68.64,utilities,Internet - Bezeq
+2024-01-06,10.56,subscriptions,Netflix
+2024-01-07,18.9,subscriptions,Spotify
+2024-01-08,22.54,transportation,Gas Station
+2024-01-09,199.1,shopping,Zara
+2024-01-11,54.74,health,Shiba Hospital
+2024-01-12,101.07,dining,Aroma
+2024-01-13,168.69,groceries,Mahane Yehuda Market
+2024-01-17,75.59,entertainment,Concert
+2024-01-19,35.28,health,Pharmacy
+2024-01-20,80.67,groceries,Shufersal
+2024-01-21,32.55,transportation,Superbus
+2024-01-22,85.13,dining,Burger King
+2024-01-26,118.42,dining,Sushi Rehavia
+2024-01-27,147.23,groceries,Whole Foods
+2024-02-01,64.85,utilities,Electric Company
+2024-02-05,9.27,subscriptions,Amazon Prime
+2024-02-06,24.43,subscriptions,Claude Code
+2024-02-07,33.01,transportation,Gas Station
+2024-02-10,37.45,entertainment,Arcade
+2024-02-11,164.45,groceries,Shufersal
+2024-02-12,79.39,dining,Pizza Hut
+2024-02-13,83.56,groceries,Shufersal
+2024-02-16,43.72,dining,Papa Johns
+2024-02-20,143.46,groceries,Rami Levy
+2024-02-21,40.79,transportation,Uber
+2024-02-23,26.31,entertainment,Museum
+2024-02-26,52.82,,Gym Membership
+2024-02-27,36.2,groceries,Shufersal
+2024-03-01,105.31,utilities,Internet - Bezeq
+2024-03-02,64.45,utilities,Electric Company
+2024-03-06,6.55,subscriptions,Netflix
+2024-03-06,14.58,subscriptions,Spotify
+2024-03-08,27.51,transportation,Parking
+2024-03-10,66.63,entertainment,Arcade
+2024-03-13,92.56,groceries,Trader Joe's
+2024-03-18,81.16,dining,Shawarma House
+2024-03-20,109.71,groceries,Shufersal
+2024-03-21,6.42,transportation,Uber
+2024-03-24,98.04,entertainment,Museum
+2024-03-27,188.27,groceries,Rami Levy
+2024-04-01,27.89,utilities,Water
+2024-04-02,106.44,utilities,Phone - Golan
+2024-04-05,10.56,subscriptions,Amazon Prime
+2024-04-06,16.4,subscriptions,Claude Code
+2024-04-08,8.84,transportation,Uber
+2024-04-10,80.42,entertainment,Arcade
+2024-04-13,76.52,groceries,Trader Joe's
+2024-04-18,92.58,,Burger King
+2024-04-20,169.04,groceries,Rami Levy
+2024-04-21,42.66,transportation,Gas Station
+2024-04-24,65.69,entertainment,Cinema City
+2024-04-27,27.17,groceries,Shufersal
+2024-05-01,152.25,utilities,Electric Company
+2024-05-02,24.47,utilities,Internet - Bezeq
+2024-05-06,23.9,subscriptions,Netflix
+2024-05-06,8.35,subscriptions,Spotify
+2024-05-08,33.04,transportation,Parking
+2024-05-10,71.95,entertainment,Cinema City
+2024-05-13,163.58,groceries,Shufersal
+2024-05-18,51.04,dining,Papa Johns
+2024-05-20,161.61,groceries,Whole Foods
+2024-05-21,41.67,transportation,Bolt
+2024-05-24,58.79,entertainment,Bowling
+2024-05-27,199.63,groceries,Shufersal
+2024-06-01,166.81,utilities,Phone - Golan
+2024-06-02,171.75,utilities,Water
+2024-06-06,18.66,subscriptions,Amazon Prime
+2024-06-06,24.71,subscriptions,Claude Code
+2024-06-08,42.79,transportation,Parking
+2024-06-10,89.66,entertainment,Concert
+2024-06-13,184.54,groceries,Whole Foods
+2024-06-18,68.77,dining,Aroma
+2024-06-20,60.93,groceries,Shufersal
+2024-06-21,11.33,transportation,Israel Railways
+2024-06-24,69.07,entertainment,Museum
+2024-06-27,138.52,groceries,Shufersal
+2024-07-01,53.92,utilities,Internet - Bezeq
+2024-07-06,15.34,subscriptions,Netflix
+2024-07-06,13.66,subscriptions,Spotify
+2024-07-08,15.57,transportation,Parking
+2024-07-10,55.9,entertainment,Arcade
+2024-07-11,56.59,health,Pharmacy
+2024-07-13,195.47,groceries,Rami Levy
+2024-07-18,128.41,dining,Sushi Rehavia
+2024-07-20,177.08,groceries,Shufersal
+2024-07-21,46.22,transportation,Uber
+2024-07-24,39.82,entertainment,Bowling
+2024-07-28,55.15,health,Doctor Visit
+2024-07-27,128.29,groceries,Trader Joe's
+2024-08-01,199.86,utilities,Electric Company
+2024-08-02,24.21,utilities,Phone - Golan
+2024-08-06,24.78,subscriptions,Amazon Prime
+2024-08-06,17.57,subscriptions,Claude Code
+2024-08-08,14.05,transportation,Israel Railways
+2024-08-10,98.9,entertainment,Concert
+2024-08-13,145.1,groceries,Trader Joe's
+2024-08-18,278.77,health,Shiba Hospital
+2024-08-20,38.24,groceries,Rami Levy
+2024-08-21,12.19,transportation,Gas Station
+2024-08-22,83.32,dining,Pizza Hut
+2024-08-24,31.33,entertainment,Bowling
+2024-08-27,18.81,groceries,Shufersal
+2024-09-01,48.41,utilities,Water
+2024-09-06,18.25,subscriptions,Netflix
+2024-09-06,13.06,subscriptions,Spotify
+2024-09-08,43.3,transportation,Parking
+2024-09-10,61.61,entertainment,Escape Room
+2024-09-13,58.31,,Trader Joe's
+2024-09-20,56.8,groceries,Whole Foods
+2024-09-26,43.39,dining,Hummus Eliyahu
+2024-10-01,159.33,utilities,Electric Company
+2024-10-02,134.84,utilities,Internet - Bezeq
+2024-10-05,12.02,subscriptions,Amazon Prime
+2024-10-06,10.67,subscriptions,Claude Code
+2024-10-10,33.49,entertainment,Escape Room
+2024-10-13,66.15,groceries,Mahane Yehuda Market
+2024-10-18,90.59,dining,Papa Johns
+2024-10-20,38.12,groceries,Shufersal
+2024-10-21,22.5,transportation,Parking
+2024-10-27,126.08,groceries,Shufersal
+2024-10-29,32.76,transportation,Israel Railways
+2024-11-01,82.55,utilities,Phone - Golan
+2024-11-02,168.91,utilities,Water
+2024-11-06,10.65,subscriptions,Netflix
+2024-11-06,14.12,subscriptions,Spotify
+2024-11-08,33.07,transportation,Parking
+2024-11-10,70.6,entertainment,Concert
+2024-11-13,27.44,groceries,Shufersal
+2024-11-18,89.27,dining,Hummus Eliyahu
+2024-11-20,136.48,groceries,Shufersal
+2024-11-24,40.08,entertainment,Museum
+2024-11-27,92.1,groceries,Trader Joe's
+2024-12-01,142.52,utilities,Electric Company
+2024-12-02,59.11,utilities,Internet - Bezeq
+2024-12-06,19.08,subscriptions,Amazon Prime
+2024-12-06,13.02,subscriptions,Claude Code
+2024-12-08,43.46,transportation,Israel Railways
+2024-12-10,20.52,entertainment,Arcade
+2024-12-13,163.01,groceries,Shufersal
+2024-12-18,260,groceries,Rami Levy
+2024-12-20,52.48,groceries,Shufersal
+2024-12-21,44.47,transportation,Superbus
+2024-12-24,60.38,entertainment,Arcade
+2024-12-26,650,dining,Cafe Cafe
+2025-01-01,123.8,utilities,Phone - Golan
+2025-01-02,183.58,utilities,Water
+2025-01-06,6.21,subscriptions,Netflix
+2025-01-06,10.16,subscriptions,Spotify
+2025-01-08,41.84,transportation,Parking
+2025-01-10,42.49,entertainment,Arcade
+2025-01-13,37.16,groceries,Shufersal
+2025-01-18,264.72,,Papa Johns
+2025-01-20,154.19,groceries,Shufersal
+2025-01-21,37.44,transportation,Israel Railways
+2025-01-24,480,entertainment,Escape Room
+2025-01-27,83.24,groceries,Trader Joe's
+2025-02-01,174.34,utilities,Electric Company
+2025-02-02,102.52,utilities,Internet - Bezeq
+2025-02-05,24.99,subscriptions,Amazon Prime
+2025-02-06,11.59,subscriptions,Claude Code
+2025-02-08,32.24,transportation,Parking
+2025-02-10,93.25,entertainment,Concert
+2025-02-13,182.78,groceries,Shufersal
+2025-02-18,53.23,dining,McDonalds
+2025-02-20,58.73,groceries,Trader Joe's
+2025-02-21,14.38,transportation,Parking
+2025-02-24,69.36,entertainment,Concert
+2025-02-27,53.24,groceries,Shufersal
+2025-03-01,140.08,utilities,Phone - Golan
+2025-03-06,5.81,subscriptions,Netflix
+2025-03-06,18.16,subscriptions,Spotify
+2025-03-08,49.64,transportation,Parking
+2025-03-10,38.84,entertainment,Cinema City
+2025-03-13,38.17,groceries,Shufersal
+2025-03-17,980,dining,Sushi Rehavia
+2025-03-18,64.72,health,Dental Clinic
+2025-03-20,136.56,groceries,Trader Joe's
+2025-03-21,36.39,,Gas Station
+2025-03-24,46.36,entertainment,Museum
+2025-03-25,490.84,shopping,Zara
+2025-03-27,45.05,groceries,Shufersal
+2025-04-01,80.64,utilities,Electric Company
+2025-04-02,122,utilities,Internet - Bezeq
+2025-04-06,13.21,subscriptions,Amazon Prime
+2025-04-06,7.77,subscriptions,Claude Code
+2025-04-08,5.9,transportation,Parking
+2025-04-10,53.5,entertainment,Cinema City
+2025-04-13,30.57,groceries,Trader Joe's
+2025-04-18,84.38,dining,Aroma
+2025-04-20,47.26,groceries,Trader Joe's
+2025-04-21,46.48,transportation,Israel Railways
+2025-04-24,320,entertainment,Concert
+2025-04-27,52.91,groceries,Shufersal
+2025-05-01,135.08,utilities,Phone - Golan
+2025-05-02,166,utilities,Water
+2025-05-06,10.03,subscriptions,Netflix
+2025-05-06,17.96,subscriptions,Spotify
+2025-05-08,48.88,transportation,Gas Station
+2025-05-10,58.41,entertainment,Arcade
+2025-05-11,36.17,health,Doctor Visit
+2025-05-13,164.5,groceries,Whole Foods
+2025-05-18,83.92,dining,Cafe Cafe
+2025-05-20,56.03,groceries,Trader Joe's
+2025-05-21,21.83,transportation,Parking
+2025-05-24,49.68,entertainment,Arcade
+2025-05-27,182.8,groceries,Shufersal
+2025-06-01,58.22,utilities,Electric Company
+2025-06-02,72.84,utilities,Internet - Bezeq
+2025-06-06,8.56,subscriptions,Amazon Prime
+2025-06-06,9.18,subscriptions,Claude Code
+2025-06-08,15.5,transportation,Parking
+2025-06-10,50.8,entertainment,Bowling
+2025-06-13,133.06,,Shufersal
+2025-06-18,650,dining,Pizza Hut
+2025-06-20,175.15,groceries,Shufersal
+2025-06-21,32.37,transportation,Israel Railways
+2025-06-24,52.01,entertainment,Bowling
+2025-06-27,385,groceries,Trader Joe's
+2025-07-01,199.32,utilities,Phone - Golan
+2025-07-06,17.83,subscriptions,Netflix
+2025-07-06,8.13,subscriptions,Spotify
+2025-07-08,30.42,transportation,Parking
+2025-07-10,43.3,entertainment,Museum
+2025-07-13,19.83,health,Pharmacy
+2025-07-13,78.52,groceries,Shufersal
+2025-07-18,47.73,dining,McDonalds
+2025-07-20,117.35,groceries,Shufersal
+2025-07-21,30.05,transportation,Uber
+2025-07-24,410,entertainment,Concert
+2025-07-27,121.9,groceries,Mahane Yehuda Market
+2025-08-01,126.12,utilities,Electric Company
+2025-08-02,155.6,utilities,Internet - Bezeq
+2025-08-06,5.2,subscriptions,Amazon Prime
+2025-08-06,12.88,subscriptions,Claude Code
+2025-08-08,49.56,transportation,Parking
+2025-08-10,24.57,entertainment,Arcade
+2025-08-13,33.53,health,Shiba Hospital
+2025-08-13,136.3,groceries,Shufersal
+2025-08-18,61.46,dining,Aroma
+2025-08-20,177.35,groceries,Rami Levy
+2025-08-21,34.43,transportation,Bolt
+2025-08-24,79.66,entertainment,Museum
+2025-08-27,142.64,groceries,Shufersal
+2025-09-01,46.33,utilities,Phone - Golan
+2025-09-06,22.88,subscriptions,Netflix
+2025-09-06,9.24,subscriptions,Spotify
+2025-09-08,14.07,transportation,Parking
+2025-09-10,36.68,entertainment,Arcade
+2025-09-13,107.3,groceries,Whole Foods
+2025-09-18,899,shopping,Amazon
+2025-09-20,130.02,groceries,Shufersal
+2025-09-24,42.62,entertainment,Museum
+2025-09-25,1190,shopping,Apple Store
+2025-09-27,66.31,groceries,Shufersal
+2025-10-01,102.63,utilities,Electric Company
+2025-10-02,320,utilities,Internet - Bezeq
+2025-10-06,20.12,subscriptions,Amazon Prime
+2025-10-06,7.74,subscriptions,Claude Code
+2025-10-08,36.86,transportation,Parking
+2025-10-10,27.48,entertainment,Museum
+2025-10-13,189.35,groceries,Shufersal
+2025-10-18,36.42,dining,Cafe Cafe
+2025-10-20,94.1,groceries,Trader Joe's
+2025-10-21,30.75,transportation,Parking
+2025-10-24,119.56,entertainment,Museum
+2025-10-25,1049,shopping,IKEA
+2025-10-27,149.54,groceries,Rami Levy
+2025-11-01,46.7,utilities,Phone - Golan
+2025-11-02,102.2,utilities,Water
+2025-11-06,8.56,subscriptions,Netflix
+2025-11-06,18.47,subscriptions,Spotify
+2025-11-08,34.94,transportation,Parking
+2025-11-10,41.02,entertainment,Cinema City
+2025-11-13,120.73,groceries,Shufersal
+2025-11-18,72.69,dining,Pizza Hut
+2025-11-20,91.41,groceries,Shufersal
+2025-11-24,38.39,entertainment,Bowling
+2025-11-27,76.61,groceries,Trader Joe's
+2025-12-01,106.37,utilities,Electric Company
+2025-12-02,57.2,utilities,Internet - Bezeq
+2025-12-06,21.16,subscriptions,Amazon Prime
+2025-12-06,13.68,subscriptions,Claude Code
+2025-12-08,15.92,transportation,Parking
+2025-12-10,30.61,entertainment,Bowling
+2025-12-13,60.7,groceries,Shufersal
+2025-12-18,49.41,dining,McDonalds
+2025-12-20,48.05,groceries,Shufersal
+2025-12-21,42.59,transportation,Gas Station
+2025-12-24,36.97,entertainment,Arcade
+2025-12-27,30.16,groceries,Shufersal
+2025-12-30,1190,shopping,Electronics Boutique
