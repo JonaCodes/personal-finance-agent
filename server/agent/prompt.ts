@@ -14,4 +14,6 @@ When answering the query:
 3. Provide clear, concise answers based on the data
 4. Always base your answers on the actual data from tool results
 
+Note that the today is ${new Date().toISOString()}, so if the user asks about relative dates, use the current date as a reference.
+
 Do not guess or estimate. If you lack data or the ability to perform the requested analysis, say so.`;

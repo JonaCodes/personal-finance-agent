@@ -28,7 +28,8 @@ export const compareDatasets = (
   params: CompareDatasetsParams
 ): ComparisonResult => {
   // TODO: Implement dataset comparison
-  // Split expenses into two periods based on dates
+  // This tool filters internally by the two date ranges to define the periods to compare
+  // Split expenses into two periods based on the provided date ranges
   // Compare based on the 'compareBy' parameter:
   //   - 'total': compare total spending in each period
   //   - 'category': compare spending by category

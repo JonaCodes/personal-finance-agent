@@ -2,8 +2,6 @@ import { Expense } from '../agent/types';
 
 export interface AggregateExpensesParams {
   groupBy: 'category' | 'vendor' | 'month' | 'year';
-  startDate?: string;
-  endDate?: string;
 }
 
 export interface AggregateResult {
@@ -17,10 +15,10 @@ export const aggregateExpenses = (
   _params: AggregateExpensesParams
 ): AggregateResult[] => {
   // TODO: Implement aggregation logic
-  // Filter by date range if provided
-  // Group expenses by the specified field
-  // Calculate total and count for each group
+  // Group the provided expenses by the specified field (category, vendor, month, or year)
+  // Calculate total amount and count for each group
   // Sort by total descending
+  // This tool operates on whatever expenses are passed in - it does NOT filter
 
   return [
     { group: 'groceries', total: 450.75, count: 12 },

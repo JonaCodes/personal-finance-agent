@@ -9,7 +9,7 @@ let cachedExpenses: Expense[] | null = null;
 
 const getExpenses = (): Expense[] => {
   if (!cachedExpenses) {
-    cachedExpenses = loadExpensesFromCSV('expenses_data/expenses_2024-2025.csv');
+    cachedExpenses = loadExpensesFromCSV('server/expenses_data/expenses_2024-2025.csv');
   }
   return cachedExpenses;
 };

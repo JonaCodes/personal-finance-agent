@@ -10,6 +10,7 @@ const MAX_STEPS = 10;
 export class FinanceAgent {
   private agentMemory: ModelMessage[];
   private expenses: Expense[];
+  private workingData: any;
   private step: number;
 
   constructor(query: string, expenses: Expense[]) {
@@ -20,6 +21,7 @@ export class FinanceAgent {
       },
     ];
     this.expenses = expenses;
+    this.workingData = expenses;
     this.step = 0;
   }
 
@@ -72,6 +74,13 @@ export class FinanceAgent {
         messages: this.agentMemory,
         tools,
       });
+
+      console.log(JSON.stringify(result, null, 2));
+      console.log('\n\n\n');
+      console.log(...result.response.messages);
+      console.log('\n\n\n');
+      console.log(result.toolCalls);
+      return 'testing'
 
       this.agentMemory.push(...result.response.messages);
 
