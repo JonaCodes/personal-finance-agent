@@ -7,10 +7,7 @@ interface GuidingQuestionsProps {
 
 export default function GuidingQuestions({ questions, onQuestionClick }: GuidingQuestionsProps) {
   return (
-    <Flex gap={'xs'}>
-      <Text size="sm" c="dimmed" mb="xs">
-        Suggestions:
-      </Text>
+    <Flex maw={'95%'}>
       <ScrollArea type="never" offsetScrollbars={false}>
         <Group gap="md" wrap="nowrap">
           {questions.map((question, index) => (
