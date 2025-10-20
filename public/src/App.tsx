@@ -96,8 +96,7 @@ function App() {
       </ActionIcon>
 
       <Flex direction={'column'} w={'100%'} align={'center'} p={'xs'} bg={computedColorScheme === 'dark' ? 'dark.7' : 'white'} style={{ position: 'fixed', alignSelf: 'center', zIndex: 2 }}>
-        <Text fw={'bold'} c={'orange.5'} fz={'sm'}>Note: for this app, "today" is December 30th, 2025</Text>
-        <Text c={'dimmed'} fz={'xs'}>So when you say "expenses last month," it means November 2025</Text>
+        <Text fw={'bold'} c={'green.5'} fz={'xl'}>Finance Agent</Text>
       </Flex>
 
       <Container size={'80%'} style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 0, height: '100%' }}>
