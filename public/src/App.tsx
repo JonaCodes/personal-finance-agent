@@ -11,18 +11,13 @@ const GUIDING_QUESTIONS = [
   "What expenses did I have over $200?",
   "What's my average dining expense?",
   "Show me my spending by category for last month",
-  "Were there any unusual expenses in October?",
   "What's the total I spent on entertainment last month?",
   "Compare my grocery spending in September vs October",
   "What's my median dining expense, excluding outliers?",
   "Show me my top 3 spending categories last month",
-  "What were my highest grocery purchases in October?",
   "Compare my average entertainment spending this month vs last month",
-  "Show me my top 5 spending categories last month, excluding any weird outliers",
   "What's the median amount I spend on groceries over $50, compared to last month?",
-  "Were there unusual dining expenses last month, and what was the average of the normal ones?",
   "Show me groceries over $100 from last month, but exclude any one-time weird purchases",
-  "What's my weekly spending pattern for dining, excluding outliers?",
   "Compare my total spending by category between September and October"
 ];
 
@@ -99,6 +94,11 @@ function App() {
       >
         {computedColorScheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
       </ActionIcon>
+
+      <Flex direction={'column'} w={'100%'} align={'center'} p={'xs'} bg={computedColorScheme === 'dark' ? 'dark.7' : 'white'} style={{ position: 'fixed', alignSelf: 'center', zIndex: 2 }}>
+        <Text fw={'bold'} c={'orange.5'} fz={'sm'}>Note: for this app, "today" is December 30th, 2025</Text>
+        <Text c={'dimmed'} fz={'xs'}>So when you say "expenses last month," it means November 2025</Text>
+      </Flex>
 
       <Container size={'80%'} style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: 0, height: '100%' }}>
         <Flex direction="column" style={{ height: '100%' }} justify={'end'}>

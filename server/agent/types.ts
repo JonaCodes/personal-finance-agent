@@ -4,9 +4,3 @@ export interface Expense {
   category: string | null;
   vendor: string;
 }
-
-export interface ToolResult {
-  toolCallId: string;
-  toolName: string;
-  result: unknown;
-}

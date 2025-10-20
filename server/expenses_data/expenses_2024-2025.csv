@@ -28,7 +28,7 @@ date,amount,category,vendor
 2024-02-20,143.46,groceries,Rami Levy
 2024-02-21,40.79,transportation,Uber
 2024-02-23,26.31,entertainment,Museum
-2024-02-26,52.82,,Gym Membership
+2024-02-26,52.82,health,Gym Membership
 2024-02-27,36.2,groceries,Shufersal
 2024-03-01,105.31,utilities,Internet - Bezeq
 2024-03-02,64.45,utilities,Electric Company
@@ -49,7 +49,7 @@ date,amount,category,vendor
 2024-04-08,8.84,transportation,Uber
 2024-04-10,80.42,entertainment,Arcade
 2024-04-13,76.52,groceries,Trader Joe's
-2024-04-18,92.58,,Burger King
+2024-04-18,92.58,dining,Burger King
 2024-04-20,169.04,groceries,Rami Levy
 2024-04-21,42.66,transportation,Gas Station
 2024-04-24,65.69,entertainment,Cinema City
@@ -109,7 +109,7 @@ date,amount,category,vendor
 2024-09-06,13.06,subscriptions,Spotify
 2024-09-08,43.3,transportation,Parking
 2024-09-10,61.61,entertainment,Escape Room
-2024-09-13,58.31,,Trader Joe's
+2024-09-13,58.31,groceries,Trader Joe's
 2024-09-20,56.8,groceries,Whole Foods
 2024-09-26,43.39,dining,Hummus Eliyahu
 2024-10-01,159.33,utilities,Electric Company
@@ -153,7 +153,7 @@ date,amount,category,vendor
 2025-01-08,41.84,transportation,Parking
 2025-01-10,42.49,entertainment,Arcade
 2025-01-13,37.16,groceries,Shufersal
-2025-01-18,264.72,,Papa Johns
+2025-01-18,264.72,dining,Papa Johns
 2025-01-20,154.19,groceries,Shufersal
 2025-01-21,37.44,transportation,Israel Railways
 2025-01-24,480,entertainment,Escape Room
@@ -179,7 +179,7 @@ date,amount,category,vendor
 2025-03-17,980,dining,Sushi Rehavia
 2025-03-18,64.72,health,Dental Clinic
 2025-03-20,136.56,groceries,Trader Joe's
-2025-03-21,36.39,,Gas Station
+2025-03-21,36.39,transportation,Gas Station
 2025-03-24,46.36,entertainment,Museum
 2025-03-25,490.84,shopping,Zara
 2025-03-27,45.05,groceries,Shufersal
@@ -214,7 +214,7 @@ date,amount,category,vendor
 2025-06-06,9.18,subscriptions,Claude Code
 2025-06-08,15.5,transportation,Parking
 2025-06-10,50.8,entertainment,Bowling
-2025-06-13,133.06,,Shufersal
+2025-06-13,133.06,groceries,Shufersal
 2025-06-18,650,dining,Pizza Hut
 2025-06-20,175.15,groceries,Shufersal
 2025-06-21,32.37,transportation,Israel Railways

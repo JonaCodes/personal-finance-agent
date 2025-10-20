@@ -1,31 +1,38 @@
 import { generateText, ModelMessage, TypedToolCall } from 'ai';
 import { google } from '@ai-sdk/google';
 import { Expense } from './types';
-import { SYSTEM_PROMPT } from './prompt';
-import { tools } from '../tools/schemas';
+import { INITIAL_SYSTEM_PROMPT } from './prompt';
+import { FILTER_RESULT_LIMIT, tools } from '../tools/schemas';
 import { toolFunctions } from '../tools/registry';
+import { deepDelete, sleep } from '../utils/general';
 
-const MAX_STEPS = 10;
+const MAX_STEPS = 3;
 
 export class FinanceAgent {
   private agentMemory: ModelMessage[];
   private expenses: Expense[];
-  private workingData: any;
-  private step: number;
 
-  constructor(query: string, expenses: Expense[]) {
+  constructor(expenses: Expense[]) {
     this.agentMemory = [
       {
-        role: 'user',
-        content: query,
-      },
+        role: 'system',
+        content: INITIAL_SYSTEM_PROMPT,
+      }
     ];
+
     this.expenses = expenses;
-    this.workingData = expenses;
-    this.step = 0;
   }
 
-  private addToMemory(toolCallId: string, toolName: string, result: unknown): void {
+  private addToMemory(toolCallId: string, toolName: string, result: any): void {
+    let truncatedResult = result;
+    if (toolName === 'filter_expenses') {
+      truncatedResult = {
+        filteredCount: result.metadata.totalMatching,
+        firstFew: result.expenses.slice(0, FILTER_RESULT_LIMIT),
+        note: "Note: this result has been truncated to save context.",
+      };
+    }
+
     this.agentMemory.push({
       role: 'tool',
       content: [
@@ -33,7 +40,7 @@ export class FinanceAgent {
           type: 'tool-result',
           toolCallId,
           toolName,
-          output: { type: 'json' as const, value: result as any },
+          output: { type: 'json' as const, value: JSON.stringify(truncatedResult) },
         },
       ],
     });
@@ -52,6 +59,7 @@ export class FinanceAgent {
     }
 
     try {
+      console.log('Calling tool', toolCall.toolName, 'with input', toolCall.input);
       const toolResult = await toolFn(this.expenses, toolCall.input);
       this.addToMemory(toolCall.toolCallId, toolCall.toolName, toolResult);
     } catch (error) {
@@ -64,24 +72,23 @@ export class FinanceAgent {
   }
 
   /* We could have passed the tools with their function logic directly to the model and let it all run independently,
-  but then we would also have to pass the entire context (our expenses data) which is not always feasible (and less secure),
-  plus we would also lose control of the ability to easily trace and log the flow, which makes debugging harder */
-  async run(): Promise<string> {
-    while (this.step < MAX_STEPS) {
+  but then we would lose control of the ability to easily trace and log the flow, which makes debugging harder */
+  async run(query: string): Promise<string> {
+    this.agentMemory.push({
+      role: 'user',
+      content: query,
+    });
+
+    let step = 0;
+    while (step < MAX_STEPS) {
       const result = await generateText({
         model: google('gemini-2.5-flash'),
-        system: SYSTEM_PROMPT,
         messages: this.agentMemory,
         tools,
+        temperature: 0.1,
       });
 
-      console.log(JSON.stringify(result, null, 2));
-      console.log('\n\n\n');
-      console.log(...result.response.messages);
-      console.log('\n\n\n');
-      console.log(result.toolCalls);
-      return 'testing'
-
+      deepDelete(result.response.messages, 'providerOptions'); // Remove providerOptions to avoid cluttering the memory with the thoughtSignature
       this.agentMemory.push(...result.response.messages);
 
       if (result.finishReason === 'tool-calls') {
@@ -92,8 +99,10 @@ export class FinanceAgent {
         return result.text;
       }
 
-      this.step++;
+      step++;
+      await sleep(1_000);
     }
+
 
     return 'Agent reached maximum steps without completing the task.';
   }

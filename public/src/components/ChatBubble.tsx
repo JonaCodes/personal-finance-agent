@@ -28,8 +28,8 @@ export default function ChatBubble({ role, content }: ChatBubbleProps) {
           backgroundColor: isUser
             ? 'var(--mantine-color-blue-6)'
             : isDark
-            ? 'var(--mantine-color-dark-5)'
-            : 'var(--mantine-color-gray-1)',
+              ? 'var(--mantine-color-dark-5)'
+              : 'var(--mantine-color-gray-1)',
         }}
       >
         <Text
@@ -38,7 +38,7 @@ export default function ChatBubble({ role, content }: ChatBubbleProps) {
             color: isUser ? 'white' : isDark ? 'var(--mantine-color-gray-3)' : 'var(--mantine-color-gray-9)',
           }}
         >
-          {content}
+          <div dangerouslySetInnerHTML={{ __html: content }} />
         </Text>
       </Box>
     </Box>
