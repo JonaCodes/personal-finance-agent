@@ -88,4 +88,9 @@ Your entry point to the project is `server/agent/index.ts`, in the `run` functio
     - Transportation: 34.94
     - Subscriptions: 27.03
 - Median dining expense, excluding outliers (all time): $81.16
-- Median groceries > $50 vs last month: $60.70 vs $91.41 
+- Median groceries > $50 vs last month: $60.70 vs $91.41
+
+---
+
+What you're aiming for:
+<img width="969" height="924" alt="image" src="https://github.com/user-attachments/assets/ab386f2a-dbff-4ffb-90b7-5240fa6b81fe" />
