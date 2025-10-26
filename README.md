@@ -56,6 +56,41 @@ Note that you will have to detect anomalies as part of the exercise. Use the `an
 - [Hint 1](https://gist.githubusercontent.com/JonaCodes/10e112c6daa80173cf99480ff56fa7e2/raw/5fa08adefd24b18125c74a7b9fe3013145098734/hint-1.txt)
 - [Hint 2](https://gist.github.com/JonaCodes/10e112c6daa80173cf99480ff56fa7e2#file-hint-2-md)
 
+#### Building tools correctly
+Use `zod` to create a proper schema for your tools. Example:
+```js
+export const tools = {
+  my_tool: tool({
+    description: `The best tool for tooling`,
+    inputSchema: z.object({name: z.string().describe('A param for the tool')})
+  }),
+  ...
+}
+```
+
+Then you can pass all your tools using vercel's SDK easily:
+```js
+const result = await generateText({
+  model: google('gemini-2.5-flash'),
+  messages: [...],
+  tools // <-- now the agent knows which tools are available to it, but it *won't* run them for you
+});
+```
+
+If the LLM decides it wants to run tools, the `finishReason` will be `tool-calls`:
+```js
+if(result.finishReason === 'tool-calls') {
+  ...
+}
+```
+
+Inside the result, you'll see a `toolCalls` array:
+```js
+result.toolCalls
+```
+
+Each tool inside `toolCalls` call will have a `toolCallId` and a `toolName`
+
 ### Memory Management
 
 **DO NOT** store the entire expenses dataset in memory
@@ -88,7 +123,7 @@ Your entry point to the project is `server/agent/index.ts`, in the `run` functio
     - Transportation: 34.94
     - Subscriptions: 27.03
 - Median dining expense, excluding outliers (all time): $81.16
-- Median groceries > $50 vs last month: $60.70 vs $91.41
+- Median groceries > $50 vs last month: $60.70 vs $91.41 
 
 ---
 
