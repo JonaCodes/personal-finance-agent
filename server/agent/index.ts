@@ -17,7 +17,7 @@ export class FinanceAgent {
       {
         role: 'system',
         content: INITIAL_SYSTEM_PROMPT,
-      }
+      },
     ];
 
     this.expenses = expenses;
@@ -29,7 +29,7 @@ export class FinanceAgent {
       truncatedResult = {
         filteredCount: result.metadata.totalMatching,
         firstFew: result.expenses.slice(0, FILTER_RESULT_LIMIT),
-        note: "Note: this result has been truncated to save context.",
+        note: 'Note: this result has been truncated to save context.',
       };
     }
 
@@ -40,34 +40,40 @@ export class FinanceAgent {
           type: 'tool-result',
           toolCallId,
           toolName,
-          output: { type: 'json' as const, value: JSON.stringify(truncatedResult) },
+          output: {
+            type: 'json' as const,
+            value: JSON.stringify(truncatedResult),
+          },
         },
       ],
     });
   }
 
-  private async handleToolCall(toolCall: TypedToolCall<typeof tools>): Promise<void> {
+  private async handleToolCall(
+    toolCall: TypedToolCall<typeof tools>
+  ): Promise<void> {
     const toolFn = toolFunctions[toolCall.toolName];
 
     if (!toolFn) {
-      this.addToMemory(
-        toolCall.toolCallId,
-        toolCall.toolName,
-        { error: `Unknown tool: ${toolCall.toolName}` }
-      );
+      this.addToMemory(toolCall.toolCallId, toolCall.toolName, {
+        error: `Unknown tool: ${toolCall.toolName}`,
+      });
       return;
     }
 
     try {
-      console.log('Calling tool', toolCall.toolName, 'with input', toolCall.input);
+      console.log(
+        'Calling tool',
+        toolCall.toolName,
+        'with input',
+        toolCall.input
+      );
       const toolResult = await toolFn(this.expenses, toolCall.input);
       this.addToMemory(toolCall.toolCallId, toolCall.toolName, toolResult);
     } catch (error) {
-      this.addToMemory(
-        toolCall.toolCallId,
-        toolCall.toolName,
-        { error: error instanceof Error ? error.message : 'Tool execution failed' }
-      );
+      this.addToMemory(toolCall.toolCallId, toolCall.toolName, {
+        error: error instanceof Error ? error.message : 'Tool execution failed',
+      });
     }
   }
 
@@ -102,7 +108,6 @@ export class FinanceAgent {
       step++;
       await sleep(1_000);
     }
-
 
     return 'Agent reached maximum steps without completing the task.';
   }
