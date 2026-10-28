@@ -4,7 +4,7 @@ import { Expense } from './types';
 import { INITIAL_SYSTEM_PROMPT } from './prompt';
 import { FILTER_RESULT_LIMIT, tools } from '../tools/schemas';
 import { toolFunctions } from '../tools/registry';
-import { deepDelete, sleep } from '../utils/general';
+import { sleep } from '../utils/general';
 
 const MAX_STEPS = 3;
 
@@ -88,13 +88,11 @@ export class FinanceAgent {
     let step = 0;
     while (step < MAX_STEPS) {
       const result = await generateText({
-        model: google('gemini-2.5-flash'),
+        model: google('gemini-3.5-flash-lite'),
         messages: this.agentMemory,
         tools,
-        temperature: 0.1,
       });
 
-      deepDelete(result.response.messages, 'providerOptions'); // Remove providerOptions to avoid cluttering the memory with the thoughtSignature
       this.agentMemory.push(...result.response.messages);
 
       if (result.finishReason === 'tool-calls') {
