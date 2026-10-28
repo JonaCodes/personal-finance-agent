@@ -4,7 +4,7 @@ import { Expense } from './types';
 import { INITIAL_SYSTEM_PROMPT } from './prompt';
 import { FILTER_RESULT_LIMIT, tools } from '../tools/schemas';
 import { toolFunctions } from '../tools/registry';
-import { deepDelete, sleep } from '../utils/general';
+import { sleep } from '../utils/general';
 
 const MAX_STEPS = 3;
 
@@ -54,13 +54,6 @@ export class FinanceAgent {
   ): Promise<void> {
     const toolFn = toolFunctions[toolCall.toolName];
 
-    if (!toolFn) {
-      this.addToMemory(toolCall.toolCallId, toolCall.toolName, {
-        error: `Unknown tool: ${toolCall.toolName}`,
-      });
-      return;
-    }
-
     try {
       console.log(
         'Calling tool',
@@ -77,8 +70,6 @@ export class FinanceAgent {
     }
   }
 
-  /* We could have passed the tools with their function logic directly to the model and let it all run independently,
-  but then we would lose control of the ability to easily trace and log the flow, which makes debugging harder */
   async run(query: string): Promise<string> {
     this.agentMemory.push({
       role: 'user',
@@ -88,13 +79,11 @@ export class FinanceAgent {
     let step = 0;
     while (step < MAX_STEPS) {
       const result = await generateText({
-        model: google('gemini-2.5-flash'),
+        model: google('gemini-3.5-flash-lite'),
         messages: this.agentMemory,
         tools,
-        temperature: 0.1,
       });
 
-      deepDelete(result.response.messages, 'providerOptions'); // Remove providerOptions to avoid cluttering the memory with the thoughtSignature
       this.agentMemory.push(...result.response.messages);
 
       if (result.finishReason === 'tool-calls') {
